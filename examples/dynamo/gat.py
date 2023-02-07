@@ -8,6 +8,8 @@ from torch_geometric.datasets import Planetoid
 from torch_geometric.nn import GATConv
 
 import torch._dynamo as dynamo
+torch._dynamo.config.suppress_errors = True
+
 from typing import List
 def custom_backend(gm: torch.fx.GraphModule, example_inputs: List[torch.Tensor]):
     print("custom backend called with FX graph:")
